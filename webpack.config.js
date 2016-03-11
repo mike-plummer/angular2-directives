@@ -2,7 +2,7 @@ var webpack = require("webpack");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: "./src/app/app.ts",
+    entry: "./src/app/app.run.ts",
     devtool: 'source-map',
     module: {
         loaders: [

@@ -2,6 +2,6 @@ import 'zone.js';
 import 'reflect-metadata';
 
 import {bootstrap} from 'angular2/platform/browser'
-import {CompanyComponent} from './company/company.component.ts'
+import {TheatreComponent} from './theatre/theatre.component.ts'
 
-bootstrap(CompanyComponent);
+bootstrap(TheatreComponent);
