@@ -1,5 +1,5 @@
 <div>
-    <span *ngFor="#seatIndex of seats">
+    <span *ngFor="#seatIndex of (10 | toArray)">
         <seat [seatNumber]="seatIndex"></seat>
     </span>
 </div>

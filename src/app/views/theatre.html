@@ -1,3 +1,3 @@
-<div *ngFor="#rowIndex of rows">
+<div *ngFor="#rowIndex of (8 | toArray)">
     <theatre-row [rowNumber]="rowIndex"></theatre-row>
 </div>
