@@ -10,11 +10,14 @@ module.exports = {
                 test: /\.ts/,
                 loader: 'ts-loader',
                 exclude: /node_modules/
-            },
-            {
+            }, {
                 test: /\.html$/,
                 loader: 'raw-loader',
                 exclude: [ /node_modules/, './src/app/views/index.html' ]
+            }, {
+                test: /\.css$/,
+                exclude: /node_modules/,
+                loader: "raw-loader"
             }
         ]
     },

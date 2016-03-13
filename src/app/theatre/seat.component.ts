@@ -9,7 +9,8 @@ import {TheatreComponent} from "./theatre.component.ts";
     selector: 'seat',
     template: require('../views/seat.html'),
     directives: [ReservedDirective],
-    providers: [TicketService]
+    providers: [TicketService],
+    styles: [require('../../assets/tooltip.css')]
 })
 export class SeatComponent {
 

@@ -1,4 +1,5 @@
 import {Directive} from 'angular2/core';
+import {SeatComponent} from "./seat.component.ts";
 
 @Directive({
     selector: '[reserved]',
@@ -8,7 +9,7 @@ import {Directive} from 'angular2/core';
     }
 })
 export class ReservedDirective {
-    constructor() {
+    constructor(public seat: SeatComponent) {
     }
 
     onMouseEnter() {
