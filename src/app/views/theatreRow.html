@@ -1,5 +1,13 @@
 <div>
-    <span *ngFor="#seatIndex of (10 | toArray)">
-        <seat [seatNumber]="seatIndex"></seat>
+    <span *ngFor="#seatIndex of (10 | toArray)" [ngSwitch]="rowNumber">
+        <template [ngSwitchWhen]="0">
+            <seat [seatNumber]="seatIndex" handicapped></seat>
+        </template>
+        <template [ngSwitchWhen]="1">
+            <seat [seatNumber]="seatIndex" vip></seat>
+        </template>
+        <template ngSwitchDefault>
+            <seat [seatNumber]="seatIndex"></seat>
+        </template>
     </span>
 </div>
