@@ -1,10 +1,8 @@
 import {Component, forwardRef, Input, QueryList, ViewChildren} from 'angular2/core';
+import {NgSwitch, NgSwitchWhen, NgSwitchDefault} from "angular2/common";
 
 import {SeatComponent} from "./seat.component.ts";
 import {ToArrayPipe} from "./toArray.pipe.ts";
-import {NgSwitch} from "angular2/common";
-import {NgSwitchWhen} from "angular2/common";
-import {NgSwitchDefault} from "angular2/common";
 import {HandicappedDirective} from "./handicapped.directive.ts";
 import {VipDirective} from "./vip.directive.ts";
 

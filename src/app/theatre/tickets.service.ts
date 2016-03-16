@@ -15,7 +15,7 @@ export class TicketService {
      * @returns {number}
      */
     calculateTicketPrice(seat: SeatComponent ): number {
-        return BASE_TICKET_PRICE - BASE_TICKET_PRICE * seat.theatreRow.rowNumber / seat.theatre.rows.length + seat.seatNumber;
+        return Math.round(BASE_TICKET_PRICE - BASE_TICKET_PRICE * seat.theatreRow.rowNumber / seat.theatre.rows.length + seat.seatNumber);
     }
 
     sellTicket(seat: SeatComponent) {

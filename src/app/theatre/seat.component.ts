@@ -8,7 +8,6 @@ import {DEFAULT_OUTLINE_COLOR, RESERVED_COLOR} from "./constants.ts";
 @Component({
     selector: 'seat',
     template: require('../views/seat.html'),
-    providers: [TicketService],
     styles: [require('../../assets/tooltip.css')],
     host: {
         '(mouseenter)': 'onMouseEnter()',
@@ -38,6 +37,12 @@ export class SeatComponent {
         this._ticketService.sellTicket(this);
         this.tooltip = 'Sold';
         this.renderer.setElementStyle(this.element.nativeElement, 'backgroundColor', RESERVED_COLOR);
+
+        let replacement = function(){
+            console.log('Already sold!');
+        };
+        this.onClick = replacement;
+        this.calculatePrice = replacement;
     }
 
     onMouseEnter() {
