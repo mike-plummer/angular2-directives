@@ -16,16 +16,19 @@ import {DEFAULT_OUTLINE_COLOR, RESERVED_COLOR} from "./constants.ts";
 })
 export class SeatComponent {
 
-    @Input() seatNumber: number;
-    public price: number;
-    public tooltip: string;
-    public outlineColor: string = DEFAULT_OUTLINE_COLOR;
+    price: number;
+    tooltip: string;
+    outlineColor: string = DEFAULT_OUTLINE_COLOR;
 
     constructor(@Inject(forwardRef(() => TheatreComponent)) public theatre: TheatreComponent,
                 @Inject(forwardRef(() => TheatreRowComponent)) public theatreRow: TheatreRowComponent,
                 private _ticketService: TicketService,
                 private element: ElementRef,
                 private renderer: Renderer) {
+    }
+
+    getSeatNumber() {
+        return this.theatreRow.seats.toArray().indexOf(this);
     }
 
     calculatePrice() {

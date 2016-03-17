@@ -15,19 +15,19 @@ import {TicketService} from "./tickets.service.ts";
 })
 export class TheatreComponent implements AfterViewInit{
 
-    @ViewChildren(TheatreRowComponent) public rowComponents: QueryList<TheatreRowComponent>;
+    @ViewChildren(TheatreRowComponent) rowComponents: QueryList<TheatreRowComponent>;
 
-    public rows: Array<number> = [];
-    public sales: number = 0.0;
+    rows: Array<number> = [];
+    sales: number = 0.0;
 
     constructor(private _changeDetectionRef : ChangeDetectorRef) {
-        TicketService.ticketSales.subscribe(salesValue => this.sales = salesValue);
+        TicketService.TICKET_SALES.subscribe(salesValue => this.sales = salesValue);
     }
 
     ngAfterViewInit() {
         this.calculateTheatrePrices();
 
-        this.rowComponents.changes.subscribe(data => {
+        this.rowComponents.changes.subscribe(() => {
             this.calculateTheatrePrices();
         });
 

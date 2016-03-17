@@ -7,7 +7,7 @@ import {BehaviorSubject} from "rxjs/Rx";
 @Injectable()
 export class TicketService {
 
-    public static ticketSales: BehaviorSubject<number> = new BehaviorSubject(0.0);
+    public static TICKET_SALES: BehaviorSubject<number> = new BehaviorSubject(0.0);
 
     /**
      * Calculates the price of a given {@link SeatComponent} based on its relative position in the Theatre.
@@ -15,10 +15,11 @@ export class TicketService {
      * @returns {number}
      */
     calculateTicketPrice(seat: SeatComponent ): number {
-        return Math.round(BASE_TICKET_PRICE - BASE_TICKET_PRICE * seat.theatreRow.rowNumber / seat.theatre.rows.length + seat.seatNumber);
+        return Math.round(BASE_TICKET_PRICE - BASE_TICKET_PRICE * seat.theatreRow.rowNumber / seat.theatre.rows.length + seat.getSeatNumber());
+
     }
 
     sellTicket(seat: SeatComponent) {
-        TicketService.ticketSales.next(TicketService.ticketSales.getValue() + seat.price);
+        TicketService.TICKET_SALES.next(TicketService.TICKET_SALES.getValue() + seat.price);
     }
 }
