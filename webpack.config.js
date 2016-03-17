@@ -24,8 +24,13 @@ module.exports = {
     plugins: [
         // Optimize IDs so that the resources that are most commonly referenced end up with the shortest Ids (reducing size)
         new webpack.optimize.OccurenceOrderPlugin(true),
-        // Angular Betas (at least through Beta8) have issues with minification, so leave disabled for now
-        //new webpack.optimize.UglifyJsPlugin(),
+
+        new webpack.optimize.UglifyJsPlugin({
+            // Must disable mangle or else Angular is unhappy and no-worky
+            mangle: false,
+            comments: false
+        }),
+
         new HtmlWebpackPlugin({
             title: 'Angular2 Directives',
             template: 'src/app/views/index.html'

@@ -13,7 +13,7 @@ import {TicketService} from "./tickets.service.ts";
     styles: [require('../../assets/theatre.css')],
     viewProviders: [TicketService]
 })
-export class TheatreComponent implements AfterViewInit{
+export class TheatreComponent implements AfterViewInit {
 
     @ViewChildren(TheatreRowComponent) rowComponents: QueryList<TheatreRowComponent>;
 
