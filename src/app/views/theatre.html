@@ -13,10 +13,10 @@
     </div>
 
     <div>
+        <button (click)="addRow()" [disabled]="rows.length >= 5">+</button>
+        <button (click)="removeRow()" [disabled]="rows.length == 0">-</button>
         <div *ngFor="#rowIndex of rows">
             <theatre-row [rowNumber]="rowIndex"></theatre-row>
         </div>
-        <button (click)="addRow()">+</button>
-        <button (click)="removeRow()">-</button>
     </div>
 </div>
