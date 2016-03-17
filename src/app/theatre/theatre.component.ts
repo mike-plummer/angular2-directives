@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, forwardRef, QueryList, ViewChildren} from 'angular2/core';
+import { AfterViewInit, ChangeDetectorRef, Component, QueryList, ViewChildren} from 'angular2/core';
 
 import {SeatComponent} from './seat.component.ts';
 import {TheatreRowComponent} from "./theatreRow.component.ts";

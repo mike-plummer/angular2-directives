@@ -1,4 +1,4 @@
-import {Component, forwardRef, Input, QueryList, ViewChildren} from 'angular2/core';
+import {Component, Input, QueryList, ViewChildren} from 'angular2/core';
 import {NgSwitch, NgSwitchWhen, NgSwitchDefault} from "angular2/common";
 
 import {SeatComponent} from "./seat.component.ts";
@@ -16,7 +16,7 @@ export class TheatreRowComponent {
 
     @Input() rowNumber: number;
 
-    @ViewChildren(forwardRef(() => SeatComponent)) seats: QueryList<SeatComponent>;
+    @ViewChildren(SeatComponent) seats: QueryList<SeatComponent>;
 
     constructor() {
     }
