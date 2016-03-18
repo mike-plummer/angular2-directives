@@ -1,9 +1,11 @@
 import { AfterViewInit, ChangeDetectorRef, Component, QueryList, ViewChildren} from 'angular2/core';
 
+import {FeeService} from "./fees.service.ts";
+import {TicketService} from "./tickets.service.ts";
+
 import {SeatComponent} from './seat.component.ts';
 import {TheatreRowComponent} from "./theatreRow.component.ts";
 import {ToArrayPipe} from "./toArray.pipe.ts";
-import {TicketService} from "./tickets.service.ts";
 
 @Component({
     selector: 'theatre',
@@ -11,7 +13,7 @@ import {TicketService} from "./tickets.service.ts";
     directives: [TheatreRowComponent],
     pipes: [ToArrayPipe],
     styles: [require('../../assets/theatre.css')],
-    viewProviders: [TicketService]
+    providers: [TicketService, FeeService]
 })
 export class TheatreComponent implements AfterViewInit {
 
@@ -20,12 +22,20 @@ export class TheatreComponent implements AfterViewInit {
     rows: Array<number> = [];
     sales: number = 0.0;
 
-    constructor(private _changeDetectionRef : ChangeDetectorRef) {
-        TicketService.TICKET_SALES.subscribe(salesValue => this.sales = salesValue);
+    constructor(private _changeDetectionRef : ChangeDetectorRef,
+                ticketService: TicketService,
+                private feeService: FeeService) {
+        ticketService.ticketSales.subscribe(salesValue => this.sales = salesValue);
     }
 
+    /**
+     * Fires after the View is initialized (basically translates to components nested within this one but not necessarily
+     * their children). This fires after contentInit which occurs when nested non-components (eg, pure HTML) is initialized.
+     */
     ngAfterViewInit() {
-        this.calculateTheatrePrices();
+        this.feeService.feeMode.subscribe(() => {
+            this.calculateTheatrePrices();
+        });
 
         this.rowComponents.changes.subscribe(() => {
             this.calculateTheatrePrices();
@@ -37,6 +47,9 @@ export class TheatreComponent implements AfterViewInit {
         this._changeDetectionRef.detectChanges();
     }
 
+    /**
+     * Iterate all seats in the theatre and recalculate prices
+     */
     private calculateTheatrePrices() {
         this.rowComponents.forEach(row => {
             row.seats.forEach(seat => {
@@ -51,5 +64,13 @@ export class TheatreComponent implements AfterViewInit {
 
     removeRow() {
         this.rows.splice(this.rows.length - 1, 1);
+    }
+
+    set feeMode(value: boolean) {
+        this.feeService.feeMode.next(value);
+    }
+
+    get feeMode(): boolean {
+        return this.feeService.feeMode.getValue();
     }
 }

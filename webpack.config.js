@@ -28,7 +28,10 @@ module.exports = {
         new webpack.optimize.UglifyJsPlugin({
             // Must disable mangle or else Angular is unhappy and no-worky
             mangle: false,
-            comments: false
+            comments: false,
+            compress: {
+                warnings: false
+            }
         }),
 
         new HtmlWebpackPlugin({

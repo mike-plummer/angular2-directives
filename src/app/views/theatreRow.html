@@ -1,9 +1,7 @@
-<div>
-    <div *ngFor="#seatIndex of (12 | toArray)" class="seat-space">
-        <span *ngIf="seatIndex % 4 != 0" [ngSwitch]="rowNumber">
-            <seat handicapped *ngSwitchWhen="0"></seat>
-            <seat vip *ngSwitchWhen="1"></seat>
-            <seat *ngSwitchDefault></seat>
-        </span>
-    </div>
+<div *ngFor="#seatIndex of (12 | toArray)" class="seat-space">
+    <span *ngIf="seatIndex % 4 != 0" [ngSwitch]="rowNumber">
+        <seat handicapped *ngSwitchWhen="0"></seat>
+        <seat vip *ngSwitchWhen="1"></seat>
+        <seat *ngSwitchDefault></seat>
+    </span>
 </div>
