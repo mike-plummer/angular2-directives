@@ -7,6 +7,6 @@ import {Pipe, PipeTransform} from 'angular2/core';
 @Pipe({name: 'toArray'})
 export class ToArrayPipe implements PipeTransform {
     transform(value: number, args: string[]) : any {
-        return Array.apply(0, Array(8)).map((x, y) => { return y; });
+        return Array.apply(0, Array(value)).map((x, y) => { return y; });
     }
 }

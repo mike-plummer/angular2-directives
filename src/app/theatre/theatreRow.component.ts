@@ -10,7 +10,8 @@ import {VipDirective} from "./vip.directive.ts";
     selector: 'theatre-row',
     template: require('../views/theatreRow.html'),
     directives: [SeatComponent, HandicappedDirective, VipDirective, NgSwitch, NgSwitchWhen, NgSwitchDefault],
-    pipes: [ToArrayPipe]
+    pipes: [ToArrayPipe],
+    styles: [require('../../assets/theatre-row.css')]
 })
 export class TheatreRowComponent {
 

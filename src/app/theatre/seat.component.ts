@@ -3,7 +3,7 @@ import {AfterViewInit, Component, ElementRef, forwardRef, Host, Inject, Input, O
 import {TicketService} from './tickets.service.ts';
 import {TheatreRowComponent} from "./theatreRow.component.ts";
 import {TheatreComponent} from "./theatre.component.ts";
-import {DEFAULT_OUTLINE_COLOR, RESERVED_COLOR} from "./constants.ts";
+import {DEFAULT_FILL_COLOR, DEFAULT_OUTLINE_COLOR, RESERVED_COLOR} from "./constants.ts";
 
 @Component({
     selector: 'seat',
@@ -19,6 +19,7 @@ export class SeatComponent {
     price: number;
     tooltip: string;
     outlineColor: string = DEFAULT_OUTLINE_COLOR;
+    fillColor: string = DEFAULT_FILL_COLOR;
 
     constructor(@Inject(forwardRef(() => TheatreComponent)) public theatre: TheatreComponent,
                 @Inject(forwardRef(() => TheatreRowComponent)) public theatreRow: TheatreRowComponent,
@@ -38,8 +39,8 @@ export class SeatComponent {
 
     onClick() {
         this._ticketService.sellTicket(this);
-        this.tooltip = 'Sold';
-        this.renderer.setElementStyle(this.element.nativeElement, 'backgroundColor', RESERVED_COLOR);
+        this.tooltip = `Sold: ${this.price}`;
+        this.fillColor = RESERVED_COLOR;
 
         let replacement = function(){
             console.log('Already sold!');
