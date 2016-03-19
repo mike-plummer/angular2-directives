@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html lang="en" data-ng-app="main" id="ng-app" class="no-js ie"></html>
+<![endif]-->
+<!--[if IE 8]>
+<html lang="en" data-ng-app="main" id="ng-app" class="no-js ie"></html>
+<![endif]-->
+<!--[if IE 9]>
+<html lang="en" data-ng-app="main" id="ng-app" class="no-js ie9"></html>
+<![endif]-->
+<!--if [(gt IE 9)|!(IE)] <!-->
+<html ng-app="main" class="no-js">
+<!-- <![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>Angluar 2 Directives</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="Angular 2 Directives">
+    <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="reveal">
+    <div class="opi-logo"></div>
+    <div class="slides">
+
+        <section data-state="index-slide">
+            <h1>Angular 2 Directives</h1>
+            <p>
+                <small><a href="http://twitter.com/plummer_mike">Mike Plummer</a> | Senior Consultant | <a
+                        href="http://www.objectpartners.com/">Object Partners</a></small>
+                <img src="./assets/img/2015-OPI-Logo-Long.png" style="background:none; border:none; box-shadow:none;"/>
+            </p>
+        </section>
+
+        <section data-state="github-slide" class="github-section">
+            <h1><i class="fa fa-icon fa-github"></i></h1>
+            <p>
+                Slides and source available on <a href="https://github.com/mike-plummer/angular2-directives"
+                                                  target="_blank">GitHub</a>
+            </p>
+        </section>
+
+        <section>
+            <h2>What's an Angular 2 Directive?</h2>
+            <p>
+                Combination of Directive and Controller from Angular 1.x
+            </p>
+        </section>
+
+        <section>
+            <h2>Types of Directives</h2>
+            <ol>
+                <li class="fragment">
+                    Structural: ngIf, ngFor, ngSwitch
+                </li>
+                <li class="fragment">
+                    Attribute: disabled, ngModel
+                </li>
+                <li class="fragment">Component</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Syntax</h2>
+            <pre><code data-trim>
+@Component({
+    selector: 'mySelector',
+    templateUrl: './myTemplate.html',
+    directives: [ChildComponent1, ChildComponent2],
+    pipes: [UsedPipe1],
+    styles: ['background-color: #fff'],
+    providers: [UsedService1, UsedService2]
+})
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>Selector</h2>
+            <ol>
+                <li class="fragment">Element Name: 'name'</li>
+                <li class="fragment">Attribute: '[name]'</li>
+                <li class="fragment">Attribute &amp; Value: '[name=value]'</li>
+                <li class="fragment">CSS Class: '.name'</li>
+                <li class="fragment">Negation: ':not(name)'</li>
+                <li class="fragment">Multiple (any match): 'selector1, selector2'</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Dependency Injection</h2>
+            <ul>
+                <li class="fragment">
+                    Providers (Services)
+                    <p>Angular 2 uses hierarchical injection - eliminates service/factory/provider uncertainty from Angular 1.x</p>
+                </li>
+                <li class="fragment">Parent elements</li>
+                <li class="fragment">Direct child elements</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Data</h2>
+            <p>How do we move data between a directive and the view?</p>
+            <ul>
+                <li class="fragment">
+                    In Template
+                    <p>One-time binding: {{ }}</p>
+                    <p>Event Binding: ( )</p>
+                    <p>One-way Data Binding: [ ]</p>
+                    <p>Two-way Data Binding: [( )]</p>
+                </li>
+                <li class="fragment">
+                    In Directive
+                    <p>@Input: Accept data from the view</p>
+                    <p>@Output: Emit events the view can react to</p>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Assorted Bits worth Mentioning</h2>
+            <p class="fragment">Use of asterisk (*)</p>
+            <p class="fragment">Transclusion</p>
+            <p class="fragment">View encapsulation</p>
+        </section>
+
+        <section>
+            <h2>Let's try some live coding!</h2>
+            <p></p>
+            <div class="fragment">
+                <video width="780" height="418" autoplay loop>
+                    <source src="assets/video.mp4" type="video/mp4">
+                    Your browser cannot play this video.
+                </video>
+            </div>
+        </section>
+
+    </div>
+</div>
+<script src="./assets/js/app.js"></script>
+<!-- If the query includes 'print-pdf', use the PDF print sheet-->
+<script type="text/javascript">
+    if (window.location.search.match(/print-pdf/gi)) {
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './assets/css/print/pdf.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    } else if (window.location.search.match(/print-paper/gi)) {
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './assets/css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    }
+
+</script>
+</body>
+</html>
