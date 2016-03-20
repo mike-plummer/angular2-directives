@@ -3,11 +3,7 @@
         The Angular2 Theatre
     </h1>
     <div>
-        <strong>Ticket sales:</strong> {{sales | currency:'USD':true:'1.2-2'}}
-        <span class="fee-mode">
-            <label for="feeMode">Ticketmaster Mode</label>
-            <input id="feeMode" type="checkbox" [(ngModel)]="feeMode" />
-        </span>
+        <!--<strong>Ticket sales:</strong> {{sales | currency:'USD':true:'1.2-2'}}-->
     </div>
 
     <div>
@@ -18,11 +14,8 @@
 
     <div>
         <div>
-            <button (click)="addRow()" [disabled]="rows.length >= 5">Add Row</button>
-            <button (click)="removeRow()" [disabled]="rows.length == 0">Remove Row</button>
+            <!-- Add/Remove row controls -->
         </div>
-        <div *ngFor="#rowIndex of rows">
-            <theatre-row [rowNumber]="rowIndex"></theatre-row>
-        </div>
+        <!-- Theatre Rows, give each row a rowNumber -->
     </div>
 </div>
