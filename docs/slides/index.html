@@ -56,9 +56,11 @@
                     Structural: ngIf, ngFor, ngSwitch
                 </li>
                 <li class="fragment">
-                    Attribute: disabled, ngModel
+                    Attribute
                 </li>
-                <li class="fragment">Component</li>
+                <li class="fragment">
+                    Component
+                </li>
             </ol>
         </section>
 
@@ -132,7 +134,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>One-time</td><td>{{ }}</td>
+                                <td>Value</td><td>{{ }}</td>
                             </tr>
                             <tr>
                                 <td>Event</td><td>( )</td>
@@ -155,6 +157,9 @@
                         </thead>
                         <tbody>
                         <tr>
+                            <td>Public variables</td><td>cookie: Oreo;</td>
+                        </tr>
+                        <tr>
                             <td>Accept attribute from view</td><td>@Input</td>
                         </tr>
                         <tr>
@@ -168,9 +173,54 @@
 
         <section>
             <h2>Assorted Bits worth Mentioning</h2>
-            <p class="fragment">Use of asterisk (*)</p>
-            <p class="fragment">Transclusion</p>
-            <p class="fragment">View encapsulation</p>
+        </section>
+
+        <section>
+            <h2>View Encapsulation</h2>
+        </section>
+
+        <section>
+            <h2>Transclusion</h2>
+            <p>
+                Transclusion
+                <pre>
+                <code data-trim>
+<omaha>
+    <p>
+        Ready, ready
+    </p>
+</omaha>
+            </code>
+            </pre>
+            <pre>
+                <code data-trim>
+<div>
+    <p>Omaha rules!</p>
+    <ng-content></ng-content>
+</div>
+                </code>
+            </pre>
+            </p>
+        </section>
+
+        <section>
+            <h2>Use of Asterisk (*)</h2>
+            <pre>
+                <code data-trim>
+<template [ngIf]="tasty">
+    <p>
+        Eat snacks
+    </p>
+</template>
+                </code>
+            </pre>
+            <pre>
+                <code data-trim>
+<p *ngIf="tasty">
+    Eat snacks
+</p>
+                </code>
+            </pre>
         </section>
 
         <section>
