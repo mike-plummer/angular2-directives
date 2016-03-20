@@ -78,43 +78,90 @@
 
         <section>
             <h2>Selector</h2>
-            <ol>
-                <li class="fragment">Element Name: 'name'</li>
-                <li class="fragment">Attribute: '[name]'</li>
-                <li class="fragment">Attribute &amp; Value: '[name=value]'</li>
-                <li class="fragment">CSS Class: '.name'</li>
-                <li class="fragment">Negation: ':not(name)'</li>
-                <li class="fragment">Multiple (any match): 'selector1, selector2'</li>
-            </ol>
+            <table style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th>Type</th><th>Syntax</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Element Name</td><td>name</td>
+                    </tr>
+                    <tr>
+                        <td>Attribute</td><td>[name]</td>
+                    </tr>
+                    <tr>
+                        <td>Attribute &amp; Value</td><td>[name=value]</td>
+                    </tr>
+                    <tr>
+                        <td>CSS Class</td><td>.name</td>
+                    </tr>
+                    <tr>
+                        <td>Negation</td><td>:not(name)</td>
+                    </tr>
+                    <tr>
+                        <td>Multiple (any match)</td><td>selector1, selector2</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
 
         <section>
             <h2>Dependency Injection</h2>
             <ul>
+                <li class="fragment">Parent elements</li>
+                <li class="fragment">Direct child elements</li>
                 <li class="fragment">
                     Providers (Services)
                     <p>Angular 2 uses hierarchical injection - eliminates service/factory/provider uncertainty from Angular 1.x</p>
                 </li>
-                <li class="fragment">Parent elements</li>
-                <li class="fragment">Direct child elements</li>
             </ul>
         </section>
 
         <section>
-            <h2>Data</h2>
+            <h2>Data Binding</h2>
             <p>How do we move data between a directive and the view?</p>
             <ul>
-                <li class="fragment">
-                    In Template
-                    <p>One-time binding: {{ }}</p>
-                    <p>Event Binding: ( )</p>
-                    <p>One-way Data Binding: [ ]</p>
-                    <p>Two-way Data Binding: [( )]</p>
+                <li class="fragment">In Templates
+                    <table style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th>Type</th><th>Syntax</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>One-time</td><td>{{ }}</td>
+                            </tr>
+                            <tr>
+                                <td>Event</td><td>( )</td>
+                            </tr>
+                            <tr>
+                                <td>One-way</td><td>[ ]</td>
+                            </tr>
+                            <tr>
+                                <td>Two-way</td><td>[( )]</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </li>
-                <li class="fragment">
-                    In Directive
-                    <p>@Input: Accept data from the view</p>
-                    <p>@Output: Emit events the view can react to</p>
+                <li class="fragment">In Directives
+                    <table style="width: 100%;">
+                        <thead>
+                        <tr>
+                            <th>Type</th><th>Syntax</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Accept attribute from view</td><td>@Input</td>
+                        </tr>
+                        <tr>
+                            <td>Emit events view can respond to</td><td>@Output</td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </li>
             </ul>
         </section>
@@ -134,7 +181,11 @@
                     <source src="assets/video.mp4" type="video/mp4">
                     Your browser cannot play this video.
                 </video>
+                <p>
+                    Just kidding, let's look at some pre-written code that won't inevitably fail to work.
+                </p>
             </div>
+
         </section>
 
     </div>
